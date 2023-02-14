@@ -9,7 +9,7 @@
 	</bean>
 	
 	<bean id="userID"
-		class="com.mypackage.UserImpl2">
+		class="com.mypackage.ClassAUser">
 		<constructor-arg ref="productID"/>
 	</bean>
 

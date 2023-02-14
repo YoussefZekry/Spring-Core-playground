@@ -13,7 +13,7 @@ public class App
         //retrieve bean from spring container
         UserInterface user = factory.getBean("userID",UserInterface.class);
        
-        System.out.println(user.details("youssef", "cairo"));
+        System.out.println(user.details());
         
         System.out.println(user.getProduct());
     }
