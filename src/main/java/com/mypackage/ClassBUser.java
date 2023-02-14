@@ -16,7 +16,7 @@ public class ClassBUser implements UserInterface{
 
 	@Override
 	public String getProduct() {
-		return "hello from the ClassBUser:  " + product.getProduct();
+		return "ClassBUser:  " + product.getProduct();
 	}
 	
 }

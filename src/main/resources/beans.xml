@@ -8,10 +8,16 @@
 		class="com.mypackage.ProductImpl">
 	</bean>
 	
-	<bean id="userID"
+	<bean id="ClassAUserID"
 		class="com.mypackage.ClassAUser">
+		<!-- constructor injection -->
 		<constructor-arg ref="productID"/>
 	</bean>
 
-	
+	<bean id="ClassCUserID"
+		class="com.mypackage.ClassCUser">
+		<!-- setter injection -->
+		<property name="product" ref="productID"/>
+	</bean>
+
 </beans>

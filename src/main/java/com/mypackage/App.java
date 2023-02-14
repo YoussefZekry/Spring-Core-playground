@@ -11,10 +11,11 @@ public class App
         ApplicationContext factory = new ClassPathXmlApplicationContext("beans.xml");
         
         //retrieve bean from spring container
-        UserInterface user = factory.getBean("userID",UserInterface.class);
-       
-        System.out.println(user.details());
+        UserInterface cUser = factory.getBean("ClassCUserID",UserInterface.class);
+
+
+        System.out.println(cUser.details());
         
-        System.out.println(user.getProduct());
+        System.out.println(cUser.getProduct());
     }
 }
