@@ -8,6 +8,7 @@ public class ClassCUser implements UserInterface{
 		System.out.println("ClassCUser: inside no-arg constructor");
 	}
 
+
 	public void setProduct(ProductInterface product) {
 		System.out.println("ClassCUser: inside setter method - setProduct");
 		this.product = product;

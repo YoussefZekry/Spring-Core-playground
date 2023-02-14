@@ -4,9 +4,21 @@ public class ClassAUser implements UserInterface{
 
 	private ProductInterface product;
 
+	public ClassAUser(){
+		System.out.println("ClassAUser: inside no-arg constructor");
+	}
+
 	public ClassAUser(ProductInterface theProductInterface)
 	{
 		product = theProductInterface;
+	}
+	
+	public ClassAUser(int x){
+		System.out.println("ClassAUser: inside int-arg constructor");
+	}
+
+	public ClassAUser(String y){
+		System.out.println("ClassAUser: inside String-arg constructor");
 	}
 
 	@Override
@@ -16,7 +28,7 @@ public class ClassAUser implements UserInterface{
 
 	@Override
 	public String getProduct() {
-		return product.getProduct();
+		return "ClassAUser:  " + product.getProduct();
 	}
 	
 }
