@@ -2,16 +2,27 @@ package com.mypackage;
 
 public class ClassCUser implements UserInterface{
 
-	private ProductInterface product;
+	static private ProductInterface product;
+	static private ClassCUser classCUser;
 
-	public ClassCUser(){
+	private ClassCUser(){
 		System.out.println("ClassCUser: inside no-arg constructor");
 	}
 
 
-	public void setProduct(ProductInterface product) {
+	public void setProduct(ProductInterface sProduct) {
 		System.out.println("ClassCUser: inside setter method - setProduct");
-		this.product = product;
+		product = sProduct;
+	}
+
+
+	static ClassCUser factory(ProductInterface sProduct)
+	{
+		product = sProduct;
+		if (classCUser == null) {
+			classCUser = new ClassCUser();
+		}
+		return classCUser;
 	}
 
 	@Override

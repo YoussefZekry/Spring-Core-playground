@@ -7,6 +7,9 @@ public class ProductImpl implements ProductInterface{
 	public ProductImpl(UserInterface user) {
 		this.user = user;
 	}
+	public ProductImpl() {
+		
+	}
 
 	@Override
 	public String getProduct() {

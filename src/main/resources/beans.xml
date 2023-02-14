@@ -7,7 +7,7 @@
 	
 	<bean id="productID"
 		class="com.mypackage.ProductImpl">
-		<constructor-arg ref="ClassBUserID" />
+		<!-- <constructor-arg ref="ClassBUserID" /> -->
 	</bean>
 	
 	<bean id="ClassAUserID"
@@ -23,9 +23,13 @@
 	</bean>
 
 	<bean id="ClassCUserID"
-		class="com.mypackage.ClassCUser">
+		class="com.mypackage.ClassCUser"
+		factory-method="factory">
+		<constructor-arg ref="productID"/>
 		<!-- setter injection -->
-		<property name="product" ref="productID"/>
+		<!-- <property name="product" ref="productID"/> -->
 	</bean>
+
+
 
 </beans>
