@@ -12,7 +12,7 @@
 	
 
 	<bean id="ClassBUserID"
-	class="com.mypackage.ClassBUser" autowire="byName" >
+	class="com.mypackage.ClassBUser" autowire="byType" >
 	<!-- <property name="product" ref="productID"/> -->
 			<!-- <constructor-arg ref="product" /> -->
 

@@ -4,10 +4,10 @@ import java.util.List;
 
 public class ClassBUser implements UserInterface{
 
-	private ProductInterface product;
+	private List<ProductInterface> product;
 	
 
-	public ClassBUser(ProductInterface product)
+	public ClassBUser(List<ProductInterface> product)
 	{
 		this.product = product;
 		System.out.println("ClassBUser: inside injection constructor");
@@ -17,7 +17,7 @@ public class ClassBUser implements UserInterface{
 		System.out.println("ClassBUser: inside no-arg constructor");
 	}
 	// @Override
-	public void setProduct(ProductInterface product) {
+	public void setProduct(List<ProductInterface> product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
 	}
@@ -28,11 +28,11 @@ public class ClassBUser implements UserInterface{
 
 	@Override
 	public String getProduct1() {
-		return "ClassBUser:  " + product.getProduct();
-		// for (int j = 0; j < product.size(); j++) {
-		// 	System.out.println("ClassBUser:  " + product.get(j).getProduct()); 
-		// }
-		// return "does";
+		// return "ClassBUser:  " + product.getProduct();
+		for (int j = 0; j < product.size(); j++) {
+			System.out.println("ClassBUser:  " + product.get(j).getProduct()); 
+		}
+		return "does";
 	}
 	
 }
