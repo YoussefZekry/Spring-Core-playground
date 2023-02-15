@@ -31,7 +31,7 @@ public class ClassCUser implements UserInterface{
 	}
 
 	@Override
-	public String getProduct() {
+	public String getProduct1() {
 		return "ClassCUser:  " + product.getProduct();
 	}
 

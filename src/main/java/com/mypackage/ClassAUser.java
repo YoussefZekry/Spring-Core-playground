@@ -27,7 +27,7 @@ public class ClassAUser implements UserInterface{
 	}
 
 	@Override
-	public String getProduct() {
+	public String getProduct1() {
 		return "ClassAUser:  " + product.getProduct();
 	}
 	

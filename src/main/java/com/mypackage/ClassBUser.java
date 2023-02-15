@@ -1,26 +1,22 @@
 package com.mypackage;
 
+import java.util.List;
+
 public class ClassBUser implements UserInterface{
 
 	private ProductInterface product;
+	
 
-	public ClassBUser(ProductInterface theProductInterface)
+	public ClassBUser(ProductInterface product)
 	{
-		product = theProductInterface;
+		this.product = product;
+		System.out.println("ClassBUser: inside injection constructor");
 	}
 
 	public ClassBUser(){
 		System.out.println("ClassBUser: inside no-arg constructor");
 	}
-	
-	public ClassBUser(int x){
-		System.out.println("ClassBUser: inside int-arg constructor");
-	}
-
-	public ClassBUser(String y){
-		System.out.println("ClassBUser: inside String-arg constructor");
-	}
-
+	// @Override
 	public void setProduct(ProductInterface product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
@@ -31,8 +27,12 @@ public class ClassBUser implements UserInterface{
 	}
 
 	@Override
-	public String getProduct() {
+	public String getProduct1() {
 		return "ClassBUser:  " + product.getProduct();
+		// for (int j = 0; j < product.size(); j++) {
+		// 	System.out.println("ClassBUser:  " + product.get(j).getProduct()); 
+		// }
+		// return "does";
 	}
 	
 }

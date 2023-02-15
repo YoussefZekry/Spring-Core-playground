@@ -2,34 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd"
-		default-lazy-init="true">
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="productID"
-		class="com.mypackage.ProductImpl">
+	<bean id="product"
+		class="com.mypackage.ProductImpl" init-method="init" destroy-method="destroy" >
 		<!-- <constructor-arg ref="ClassBUserID" /> -->
 	</bean>
 	
-	<bean id="ClassAUserID"
-		class="com.mypackage.ClassAUser">
-		<!-- constructor injection -->
-		<constructor-arg ref="productID"/>
-	</bean>
+	
 
 	<bean id="ClassBUserID"
-	class="com.mypackage.ClassBUser">
-	<constructor-arg value="20"/>
-	<property name="product" ref="productID"/>
+	class="com.mypackage.ClassBUser" autowire="byName" >
+	<!-- <property name="product" ref="productID"/> -->
+			<!-- <constructor-arg ref="product" /> -->
+
 	</bean>
-
-	<bean id="ClassCUserID"
-		class="com.mypackage.ClassCUser"
-		factory-method="factory">
-		<constructor-arg ref="productID"/>
-		<!-- setter injection -->
-		<!-- <property name="product" ref="productID"/> -->
-	</bean>
-
-
 
 </beans>
