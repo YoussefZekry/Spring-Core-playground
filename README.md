@@ -1,0 +1,1 @@
+A playground project to apply spring features.
