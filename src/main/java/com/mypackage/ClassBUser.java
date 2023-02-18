@@ -2,6 +2,8 @@ package com.mypackage;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ClassBUser implements UserInterface{
 
 	private List<ProductInterface> product;
@@ -17,7 +19,8 @@ public class ClassBUser implements UserInterface{
 		System.out.println("ClassBUser: inside no-arg constructor");
 	}
 	// @Override
-	public void setProduct(List<ProductInterface> product) {
+	@Autowired
+	private void setProduct(List<ProductInterface> product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
 	}
@@ -30,7 +33,7 @@ public class ClassBUser implements UserInterface{
 	public String getProduct1() {
 		// return "ClassBUser:  " + product.getProduct();
 		for (int j = 0; j < product.size(); j++) {
-			System.out.println("ClassBUser:  " + product.get(j).getProduct()); 
+			System.out.println("ClassBUser(loop):  " + product.get(j).getProduct()); 
 		}
 		return "does";
 	}
