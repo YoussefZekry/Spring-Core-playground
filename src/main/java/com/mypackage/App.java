@@ -16,6 +16,8 @@ public class App
 
         System.out.println(user.details());
         System.out.println(user.getProduct1());
+        System.out.println(ClassBUser.getEmail());
+        System.out.println(ClassBUser.getName());
 
         context.registerShutdownHook();
     }

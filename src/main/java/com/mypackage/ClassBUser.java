@@ -12,7 +12,24 @@ public class ClassBUser implements UserInterface{
 // @Resource
 // @Qualifier("myqualifier")
 	private List<ProductInterface> product;
+	private static String email;
+	public static String getEmail() {
+		return email;
+	}
+	public static void setEmail(String semail) {
+		System.out.println("ClassBUser: inside setter method - setEmail");
+		email = semail;
+	}
+
+	private static String name;
 	
+	public static String getName() {
+		return name;
+	}
+	public static void setName(String sname) {
+		System.out.println("ClassBUser: inside setter method - setName");
+		name = sname;
+	}
 	// @Autowired
 	public ClassBUser(List<ProductInterface> product)
 	{
