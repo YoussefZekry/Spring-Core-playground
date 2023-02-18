@@ -8,18 +8,17 @@ public class ClassBUser implements UserInterface{
 // @Autowired
 	private List<ProductInterface> product;
 	
-
+	@Autowired
 	public ClassBUser(List<ProductInterface> product)
 	{
 		this.product = product;
 		System.out.println("ClassBUser: inside injection constructor");
 	}
-
 	public ClassBUser(){
 		System.out.println("ClassBUser: inside no-arg constructor");
 	}
 	// @Override
-	@Autowired
+	// @Autowired
 	private void notaSetterMethod(List<ProductInterface> product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
