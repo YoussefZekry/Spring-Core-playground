@@ -9,7 +9,7 @@ import jakarta.annotation.Resource;
 
 public class ClassBUser implements UserInterface{
 // @Autowired
-@Resource
+// @Resource
 // @Qualifier("myqualifier")
 	private List<ProductInterface> product;
 	
@@ -24,6 +24,7 @@ public class ClassBUser implements UserInterface{
 	}
 	// @Override
 	// @Autowired
+	@Resource
 	private void notaSetterMethod(List<ProductInterface> product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
