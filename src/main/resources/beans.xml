@@ -18,7 +18,7 @@
 	<bean id="ClassBUserID"
 	class="com.mypackage.ClassBUser" >
 	<qualifier value="myqualgifier"/>
-	<property name="email" value="${email}"></property>
+	<property name="email" value="${java.home}"></property>
 	<property name="name" value="${name}"></property>
 	<!-- <property name="product" ref="product"/> -->
 			<!-- <constructor-arg ref="product" /> -->
