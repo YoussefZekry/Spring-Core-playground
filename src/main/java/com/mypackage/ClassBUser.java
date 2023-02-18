@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ClassBUser implements UserInterface{
-@Autowired
+// @Autowired
 	private List<ProductInterface> product;
 	
 
@@ -19,7 +19,7 @@ public class ClassBUser implements UserInterface{
 		System.out.println("ClassBUser: inside no-arg constructor");
 	}
 	// @Override
-	// @Autowired
+	@Autowired
 	private void notaSetterMethod(List<ProductInterface> product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
