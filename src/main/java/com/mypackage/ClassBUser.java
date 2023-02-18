@@ -24,8 +24,8 @@ public class ClassBUser implements UserInterface{
 	}
 	// @Override
 	// @Autowired
-	@Resource
-	private void notaSetterMethod(List<ProductInterface> product) {
+	@Resource(name = "product")
+	private void setProduct(List<ProductInterface> product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
 	}
