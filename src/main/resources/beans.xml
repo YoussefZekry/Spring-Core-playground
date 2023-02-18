@@ -10,13 +10,14 @@
 	<!-- <context:property-placeholder location="classpath:com/something/jdbc.properties"/> -->
 
 	<bean id="product"
-		class="com.mypackage.ProductImpl" init-method="init" destroy-method="destroy" >
+		class="com.mypackage.ProductImpl"  >
 		<!-- <constructor-arg ref="ClassBUserID" /> -->
 	</bean>
 	
 
 	<bean id="ClassBUserID"
 	class="com.mypackage.ClassBUser" >
+	<qualifier value="myqualgifier"/>
 	<!-- <property name="product" ref="product"/> -->
 			<!-- <constructor-arg ref="product" /> -->
 
