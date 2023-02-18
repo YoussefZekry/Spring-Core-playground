@@ -7,7 +7,7 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:annotation-config/>
-	<!-- <context:property-placeholder location="classpath:src\main\resources\values.properties"/> -->
+	<context:property-placeholder location="classpath:values.properties"/>
 
 	<bean id="product"
 		class="com.mypackage.ProductImpl"  >
@@ -18,8 +18,8 @@
 	<bean id="ClassBUserID"
 	class="com.mypackage.ClassBUser" >
 	<qualifier value="myqualgifier"/>
-	<property name="email" value="youssef@gmail.com"></property>
-	<property name="name" value="youssef"></property>
+	<property name="email" value="${email}"></property>
+	<property name="name" value="${name}"></property>
 	<!-- <property name="product" ref="product"/> -->
 			<!-- <constructor-arg ref="product" /> -->
 
