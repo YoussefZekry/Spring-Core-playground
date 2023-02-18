@@ -3,12 +3,17 @@ package com.mypackage;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import jakarta.annotation.Resource;
 
 public class ClassBUser implements UserInterface{
 // @Autowired
+@Resource
+// @Qualifier("myqualifier")
 	private List<ProductInterface> product;
 	
-	@Autowired
+	// @Autowired
 	public ClassBUser(List<ProductInterface> product)
 	{
 		this.product = product;
