@@ -8,21 +8,14 @@
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:annotation-config/>
 	<context:property-placeholder location="classpath:values.properties"/>
-
+	<context:component-scan base-package="com.mypackage"></context:component-scan>
+	
 	<bean id="product"
 		class="com.mypackage.ProductImpl"  >
 		<!-- <constructor-arg ref="ClassBUserID" /> -->
 	</bean>
 	
 
-	<bean id="ClassBUserID"
-	class="com.mypackage.ClassBUser" >
-	<qualifier value="myqualgifier"/>
-	<property name="email" value="${java.home}"></property>
-	<property name="name" value="${name}"></property>
-	<!-- <property name="product" ref="product"/> -->
-			<!-- <constructor-arg ref="product" /> -->
-
-	</bean>
+	
 
 </beans>

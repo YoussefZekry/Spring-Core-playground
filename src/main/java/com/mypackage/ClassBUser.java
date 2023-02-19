@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.*;
 
-import jakarta.annotation.Resource;
-
+import jakarta.annotation.*;
+@Service
 public class ClassBUser implements UserInterface{
 // @Autowired
 // @Resource
@@ -16,9 +18,9 @@ public class ClassBUser implements UserInterface{
 	public static String getEmail() {
 		return email;
 	}
-	public static void setEmail(String semail) {
+	public static void setEmail(String sEmail) {
 		System.out.println("ClassBUser: inside setter method - setEmail");
-		email = semail;
+		email = sEmail;
 	}
 
 	private static String name;
@@ -26,9 +28,9 @@ public class ClassBUser implements UserInterface{
 	public static String getName() {
 		return name;
 	}
-	public static void setName(String sname) {
+	public static void setName(String sName) {
 		System.out.println("ClassBUser: inside setter method - setName");
-		name = sname;
+		name = sName;
 	}
 	// @Autowired
 	public ClassBUser(List<ProductInterface> product)
@@ -57,7 +59,7 @@ public class ClassBUser implements UserInterface{
 		for (int j = 0; j < product.size(); j++) {
 			System.out.println("ClassBUser(loop):  " + product.get(j).getProduct()); 
 		}
-		return "does";
+		return "";
 	}
 	
 }

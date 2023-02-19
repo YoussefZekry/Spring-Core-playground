@@ -11,7 +11,7 @@ public class App
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         
         //retrieve bean from spring container
-        UserInterface user = context.getBean("ClassBUserID",UserInterface.class);
+        UserInterface user = context.getBean("classBUser",UserInterface.class);
 
 
         System.out.println(user.details());
