@@ -1,16 +1,20 @@
 package com.mypackage;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
-public class ProductImpl implements ProductInterface{
+@Repository
+public class Product implements ProductInterface{
 
 	private UserInterface user;
 
-	public ProductImpl(UserInterface user) {
+	public Product(UserInterface user) {
 		this.user = user;
 	}
-	public ProductImpl() {
+	public Product() {
 		System.out.println("product: inside no-arg constructor");	
 	}
 
