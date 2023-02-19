@@ -4,33 +4,37 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.*;
 
 import jakarta.annotation.*;
-// @Service
+@Repository
 public class ClassBUser implements UserInterface{
 // @Autowired
 // @Resource
 // @Qualifier("myqualifier")
 	private List<ProductInterface> product;
-	private static String email;
-	public static String getEmail() {
+	
+	private String email;
+	public  String getEmail() {
 		return email;
 	}
-	public static void setEmail(String sEmail) {
+	@Autowired
+	public  void setEmail(@Value("${email}")String email) {
 		System.out.println("ClassBUser: inside setter method - setEmail");
-		email = sEmail;
+		this.email = email;
 	}
 
-	private static String name;
+	private  String name;
 	
-	public static String getName() {
+	public  String getName() {
 		return name;
 	}
-	public static void setName(String sName) {
+	@Autowired
+	public  void setName(@Value("${name} ") String name) {
 		System.out.println("ClassBUser: inside setter method - setName");
-		name = sName;
+		this.name = name;
 	}
 	// @Autowired
 	public ClassBUser(List<ProductInterface> product)
