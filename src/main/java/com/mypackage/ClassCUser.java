@@ -1,5 +1,8 @@
 package com.mypackage;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class ClassCUser implements UserInterface{
 
 	static private ProductInterface product;
