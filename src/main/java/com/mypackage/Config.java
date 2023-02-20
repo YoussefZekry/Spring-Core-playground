@@ -4,16 +4,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
+@Profile("production | testing")
 @ImportResource("classpath:beans.xml")
 // @PropertySource("values.properties")
 public class Config {
 	
 	@Bean(initMethod = "init")
-	@Scope("prototype")
+	// @Scope("prototype")
 	public Product product(){
 		return new Product();
 	}

@@ -10,7 +10,10 @@ public class App
     {
         //load spring config file
         AnnotationConfigApplicationContext context = 
-                new AnnotationConfigApplicationContext(Config.class);
+                new AnnotationConfigApplicationContext();
+        context.getEnvironment().setActiveProfiles("production");
+        context.register(Config.class);
+        context.refresh();
         
         //retrieve bean from spring container
         UserInterface user = context.getBean("classBUser",UserInterface.class);
