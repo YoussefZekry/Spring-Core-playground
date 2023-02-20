@@ -18,12 +18,12 @@ public class Product implements ProductInterface{
 		System.out.println("product: inside no-arg constructor");	
 	}
 
-	@PostConstruct
+	// @PostConstruct
 	public void init() {
 		System.out.println("product: inside init method");
 	}
 
-	@PreDestroy
+	// @PreDestroy
 	public void destroy() {
 		System.out.println("product: inside destroy method");
 	}
