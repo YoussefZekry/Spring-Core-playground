@@ -15,8 +15,10 @@ public class ClassBUser implements UserInterface{
 // @Resource
 // @Qualifier("myqualifier")
 	private List<ProductInterface> product;
-	
-	private String email;
+	private String email;	
+	private  String name;
+
+
 	public  String getEmail() {
 		return email;
 	}
@@ -26,7 +28,6 @@ public class ClassBUser implements UserInterface{
 		this.email = email;
 	}
 
-	private  String name;
 	
 	public  String getName() {
 		return name;
@@ -36,15 +37,20 @@ public class ClassBUser implements UserInterface{
 		System.out.println("ClassBUser: inside setter method - setName");
 		this.name = name;
 	}
+
+
 	// @Autowired
 	public ClassBUser(List<ProductInterface> product)
 	{
 		this.product = product;
 		System.out.println("ClassBUser: inside injection constructor");
 	}
+
 	public ClassBUser(){
 		System.out.println("ClassBUser: inside no-arg constructor");
 	}
+
+
 	// @Override
 	// @Autowired
 	@Resource(name = "product")
@@ -52,6 +58,8 @@ public class ClassBUser implements UserInterface{
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
 	}
+
+	
 	@Override
 	public String details() {
 		return "ClassBUser details";
