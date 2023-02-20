@@ -24,7 +24,7 @@ public class Product implements ProductInterface{
 	}
 
 	// @PreDestroy
-	public void destroy() {
+	public void shutdown() {
 		System.out.println("product: inside destroy method");
 	}
 

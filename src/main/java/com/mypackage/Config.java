@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("values.properties")
 public class Config {
 	
-	@Bean(initMethod = "init",destroyMethod = "destroy" )
+	@Bean(initMethod = "init")
 	public Product product(){
 		return new Product();
 	}
