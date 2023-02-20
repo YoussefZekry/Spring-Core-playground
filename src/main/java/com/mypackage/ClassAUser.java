@@ -1,8 +1,9 @@
 package com.mypackage;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-// @Repository
+// @Service
 public class ClassAUser implements UserInterface{
 
 	private ProductInterface product;

@@ -14,33 +14,33 @@ public class ClassBUser implements UserInterface{
 // @Autowired
 // @Resource
 // @Qualifier("myqualifier")
-	private List<ProductInterface> product;
-	private String email;	
-	private  String name;
+	private ProductInterface product;
+	// private String email;	
+	// private  String name;
 
 
-	public  String getEmail() {
-		return email;
-	}
-	@Autowired
-	public  void setEmail(@Value("${email}")String email) {
-		System.out.println("ClassBUser: inside setter method - setEmail");
-		this.email = email;
-	}
+	// public  String getEmail() {
+	// 	return email;
+	// }
+	// @Autowired
+	// public  void setEmail(@Value("${email}")String email) {
+	// 	System.out.println("ClassBUser: inside setter method - setEmail");
+	// 	this.email = email;
+	// }
 
 	
-	public  String getName() {
-		return name;
-	}
-	@Autowired
-	public  void setName(@Value("${name} ") String name) {
-		System.out.println("ClassBUser: inside setter method - setName");
-		this.name = name;
-	}
+	// public  String getName() {
+	// 	return name;
+	// }
+	// @Autowired
+	// public  void setName(@Value("${name} ") String name) {
+	// 	System.out.println("ClassBUser: inside setter method - setName");
+	// 	this.name = name;
+	// }
 
 
 	// @Autowired
-	public ClassBUser(List<ProductInterface> product)
+	public ClassBUser(ProductInterface product)
 	{
 		this.product = product;
 		System.out.println("ClassBUser: inside injection constructor");
@@ -51,10 +51,9 @@ public class ClassBUser implements UserInterface{
 	}
 
 
-	// @Override
 	// @Autowired
 	@Resource(name = "product")
-	private void setProduct(List<ProductInterface> product) {
+	private void setProduct(ProductInterface product) {
 		System.out.println("ClassBUser: inside setter method - setProduct");
 		this.product = product;
 	}
@@ -66,11 +65,8 @@ public class ClassBUser implements UserInterface{
 	}
 
 	@Override
-	public String getProduct1() {
-		// return "ClassBUser:  " + product.getProduct();
-		for (int j = 0; j < product.size(); j++) {
-			System.out.println("ClassBUser(loop):  " + product.get(j).getProduct()); 
-		}
+	public String getProduct1() {		
+			System.out.println("ClassBUser:  " + product.getProduct()); 
 		return "";
 	}
 	
