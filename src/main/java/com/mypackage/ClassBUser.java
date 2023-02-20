@@ -15,30 +15,30 @@ public class ClassBUser implements UserInterface{
 // @Resource
 // @Qualifier("myqualifier")
 	private ProductInterface product;
-	@Value("${email : default@email.com}")
+	// @Value("${email}")
 	private String email;	
-	@Value("${name : default Name}")
+	// @Value("${name}")
 	private  String name;
 
 
 	public  String getEmail() {
 		return email;
 	}
-	// @Autowired
-	// public  void setEmail(@Value("${email}")String email) {
-	// 	System.out.println("ClassBUser: inside setter method - setEmail");
-	// 	this.email = email;
-	// }
+	@Autowired
+	public  void setEmail(@Value("${email}")String email) {
+		System.out.println("ClassBUser: inside setter method - setEmail");
+		this.email = email;
+	}
 
 	
 	public  String getName() {
 		return name;
 	}
-	// @Autowired
-	// public  void setName(@Value("${name} ") String name) {
-	// 	System.out.println("ClassBUser: inside setter method - setName");
-	// 	this.name = name;
-	// }
+	@Autowired
+	public  void setName(@Value("${name} ") String name) {
+		System.out.println("ClassBUser: inside setter method - setName");
+		this.name = name;
+	}
 
 
 	// @Autowired
