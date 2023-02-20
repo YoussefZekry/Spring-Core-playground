@@ -18,7 +18,10 @@ public class App
 
         System.out.println(user.details());
         System.out.println(user.getProduct1());
-    
+        
+        ClassBUser user2 = context.getBean("classBUser",ClassBUser.class);
+        System.out.println(user2.getEmail());
+        System.out.println(user2.getName());
 
         context.registerShutdownHook();
     }

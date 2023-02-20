@@ -15,13 +15,15 @@ public class ClassBUser implements UserInterface{
 // @Resource
 // @Qualifier("myqualifier")
 	private ProductInterface product;
-	// private String email;	
-	// private  String name;
+	@Value("${email}")
+	private String email;	
+	@Value("${name}")
+	private  String name;
 
 
-	// public  String getEmail() {
-	// 	return email;
-	// }
+	public  String getEmail() {
+		return email;
+	}
 	// @Autowired
 	// public  void setEmail(@Value("${email}")String email) {
 	// 	System.out.println("ClassBUser: inside setter method - setEmail");
@@ -29,9 +31,9 @@ public class ClassBUser implements UserInterface{
 	// }
 
 	
-	// public  String getName() {
-	// 	return name;
-	// }
+	public  String getName() {
+		return name;
+	}
 	// @Autowired
 	// public  void setName(@Value("${name} ") String name) {
 	// 	System.out.println("ClassBUser: inside setter method - setName");
