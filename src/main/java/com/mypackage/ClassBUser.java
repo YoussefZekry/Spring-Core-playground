@@ -15,9 +15,9 @@ public class ClassBUser implements UserInterface{
 // @Resource
 // @Qualifier("myqualifier")
 	private ProductInterface product;
-	@Value("${email}")
+	@Value("${email : default@email.com}")
 	private String email;	
-	@Value("${name}")
+	@Value("${name : default Name}")
 	private  String name;
 
 

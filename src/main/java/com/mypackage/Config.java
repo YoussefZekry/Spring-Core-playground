@@ -16,7 +16,7 @@ public class Config {
 
 	@Bean
 	public ClassBUser classBUser(){
-		return new ClassBUser();
+		return new ClassBUser(product());
 	}
 
 }
