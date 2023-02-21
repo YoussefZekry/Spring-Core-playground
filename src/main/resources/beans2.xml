@@ -12,7 +12,8 @@
 	<bean id="around" class="com.mypackage.CalcAround" />
 	<bean id="CalcService" class="com.mypackage.CalcService"></bean>
 
-	<bean id="mo3yan" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+	<bean id="mo3yan" 
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
 			<list>
 				<value>CalcService</value>
@@ -20,13 +21,21 @@
 		</property>
 		<property name="interceptorNames">
 			<list>
-				<value>before</value>
-				<value>afterReturn</value>
+				<value>advisor</value>
 			</list>
 		</property>
 	</bean>
 
-	
+
+	<bean id="advisor" 
+		class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="mappedNames">
+			<list>
+				<value>add</value>
+			</list>
+		</property>
+		<property name="advice" ref="before"></property>	
+	</bean>
 	
 
 
