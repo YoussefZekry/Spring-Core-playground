@@ -11,14 +11,22 @@
 	<bean id="afterReturn" class="com.mypackage.CalcAfterReturn" />
 	<bean id="around" class="com.mypackage.CalcAround" />
 
+	<bean id="pointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="add"></property>
+	</bean>
+
+	<bean id="advisor" 
+		class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="pointcut"></property>
+		<property name="advice" ref="before"></property>	
+	</bean>
+
 	<bean id="CalcProxy" 
 		class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="CalcService"/>
 		<property name="interceptorNames">
 			<list>				
-				<value>afterReturn</value>
-				<value>around</value>
-				<value>before</value>
+				<value>advisor</value>
 			</list>
 		</property>
 	</bean>
