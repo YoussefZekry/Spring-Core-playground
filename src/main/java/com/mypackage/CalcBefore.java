@@ -23,7 +23,10 @@ public class CalcBefore {
 		System.out.println("(BeforeAny)");
 	}
 
-	@Before("execution(* com.mypackage..add(..))")
+	@Pointcut("execution(* com.mypackage..add(..))")
+	void addOperation(){}
+	
+	@Before("addOperation()")
 	public void beforeAdd() {
 		System.out.println("(BeforeAdd)");
 	}
@@ -38,7 +41,7 @@ public class CalcBefore {
 			);
 	}
 
-	@AfterReturning(pointcut = "execution(* com.mypackage..add(..))",returning = "youssef")
+	@AfterReturning(pointcut = "addOperation()",returning = "youssef")
 	public void AfterAdd(JoinPoint joinPoint,Object youssef) 
 		throws Throwable{
 			System.out.println("(AfterReturningAdd) method: "
@@ -48,7 +51,7 @@ public class CalcBefore {
 				);
 		}
 
-		@AfterThrowing(throwing = "shady",pointcut = "execution(* com.mypackage..add(..))")
+		@AfterThrowing(throwing = "shady",pointcut = "addOperation()")
 		public void afterThrowingAdd(JoinPoint joinPoint, EmptyStackException shady) 
 			throws Throwable{
 				System.out.println("(afterThrowingAdd) method: "
@@ -58,7 +61,7 @@ public class CalcBefore {
 					+ "*****************EmptyStackException.....****************");
 			}
 
-		@Around("execution(* com.mypackage..add(..))")
+		@Around("addOperation()")
 		public Object AroundAdd(ProceedingJoinPoint joinPoint) 
 			throws Throwable{
 				System.out.println("(AroundAdd)before method: "
