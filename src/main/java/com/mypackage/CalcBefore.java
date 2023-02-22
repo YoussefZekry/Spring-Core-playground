@@ -7,6 +7,7 @@ import javax.naming.spi.DirStateFactory.Result;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
@@ -35,12 +36,21 @@ public class CalcBefore {
 	@AfterReturning(pointcut = "execution(* com.mypackage..add(..))",returning = "youssef")
 	public void AfterAdd(JoinPoint joinPoint,Object youssef) 
 		throws Throwable{
-			System.out.println("(AfterAdd) method: "
+			System.out.println("(AfterReturningAdd) method: "
 				+ joinPoint.getSignature().getName()
-				+ "\n(AfterAdd) arguments: "
+				+ "\n(AfterReturningAdd) arguments: "
 				+ youssef+5000
 				);
 		}
 
-	
+		@AfterThrowing("execution(* com.mypackage..add(..))")
+		public void afterThrowingAdd(JoinPoint joinPoint) 
+			throws Throwable{
+				System.out.println("(afterThrowingAdd) method: "
+					+ joinPoint.getSignature().getName()
+					+ "\n(afterThrowingAdd) arguments: "
+					+ Arrays.toString(joinPoint.getArgs())
+					+ "*****************Exception.....****************");
+		
+			}
 }
