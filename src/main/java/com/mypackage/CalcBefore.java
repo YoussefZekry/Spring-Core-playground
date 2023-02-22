@@ -1,6 +1,7 @@
 package com.mypackage;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
 import javax.naming.spi.DirStateFactory.Result;
 
@@ -43,14 +44,14 @@ public class CalcBefore {
 				);
 		}
 
-		@AfterThrowing("execution(* com.mypackage..add(..))")
-		public void afterThrowingAdd(JoinPoint joinPoint) 
+		@AfterThrowing(throwing = "shady",pointcut = "execution(* com.mypackage..add(..))")
+		public void afterThrowingAdd(JoinPoint joinPoint, EmptyStackException shady) 
 			throws Throwable{
 				System.out.println("(afterThrowingAdd) method: "
 					+ joinPoint.getSignature().getName()
 					+ "\n(afterThrowingAdd) arguments: "
 					+ Arrays.toString(joinPoint.getArgs())
-					+ "*****************Exception.....****************");
+					+ "*****************EmptyStackException.....****************");
 		
 			}
 }
