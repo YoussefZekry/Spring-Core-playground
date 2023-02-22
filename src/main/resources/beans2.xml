@@ -12,7 +12,7 @@
 	<aop:aspectj-autoproxy/>
 	<bean id="CalcService" class="com.mypackage.CalcService"/>
 	<bean id="aspect" class="com.mypackage.CalcBefore"/>
-
+	<bean id="aspectIntro" class="com.mypackage.AspectIntroduction"></bean>
 
 
 </beans>
