@@ -27,19 +27,20 @@ public class App
         // System.out.println(userDAOInterface.count());
         // System.out.println(userModel.getUser_name());
         // System.out.println( userDAOInterface.findAll());
-            // userModel.setId(5);
-			// userModel.setEmail("email");
-			userModel.setAddress("address");
-			// userModel.setPhone("00");
-			userModel.setMobile("0100");
-			userModel.setDate_of_birth(Date.valueOf("2002-08-06"));
-			userModel.setRegistration_date(Date.valueOf("2005-08-06"));
+            userModel.setId(5);
+			userModel.setEmail("updatedEmail");
+			userModel.setAddress("updatedAddress");
+			userModel.setPhone("updatedPhone");
+			// userModel.setMobile("0100");
+			// userModel.setDate_of_birth(Date.valueOf("2002-08-06"));
+			// userModel.setRegistration_date(Date.valueOf("2005-08-06"));
 			// userModel.setUser_name("user");
 			// userModel.setPassword("123");
-			userModel.setFull_name("fname");
+			// userModel.setFull_name("fname");
             // UserDAOImpl userDAOImpl = new UserDAOImpl();
 
-        userDAOInterface.insert(userModel);
+        // userDAOInterface.insert(userModel);
+        userDAOInterface.update(userModel);
 
     }
 }

@@ -80,9 +80,14 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
 		
 	}
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+	public void update(UserModel userModel) {
+		String sql = "UPDATE user set email = ?, address = ?, phone = ? where id = ?";
+		Object[] args = new Object[]{
+			userModel.getEmail(),
+			userModel.getAddress(),
+			userModel.getPhone(),
+			userModel.getId()};
+		jdbcTemplate.update(sql,args);		
 	}
 
 	@Override

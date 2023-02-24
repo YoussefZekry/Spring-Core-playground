@@ -10,6 +10,6 @@ public interface UserDAOInterface {
 	public List<Map<String,Object>> findAll();
 	public int count();
 	public void insert(UserModel userModel);
-	public void update();
+	public void update(UserModel userModel);
 	public void delete();
 }
