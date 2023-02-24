@@ -21,16 +21,16 @@ public class App
         //retrieve bean from spring container
         UserDAOInterface userDAOInterface = (UserDAOInterface)context.getBean("UserDAOImpl");
         // UserDAOImpl userDAOImpll = (UserDAOImpl)context.getBean("UserDAOImpl");
-        UserModel userModel = new UserModel();
+        // UserModel userModel = new UserModel();
         // UserModel userModel = userDAOInterface.findUserById(2);
         
         // System.out.println(userDAOInterface.count());
         // System.out.println(userModel.getUser_name());
         // System.out.println( userDAOInterface.findAll());
-            userModel.setId(5);
-			userModel.setEmail("updatedEmail");
-			userModel.setAddress("updatedAddress");
-			userModel.setPhone("updatedPhone");
+            // userModel.setId(5);
+			// userModel.setEmail("updatedEmail");
+			// userModel.setAddress("updatedAddress");
+			// userModel.setPhone("updatedPhone");
 			// userModel.setMobile("0100");
 			// userModel.setDate_of_birth(Date.valueOf("2002-08-06"));
 			// userModel.setRegistration_date(Date.valueOf("2005-08-06"));
@@ -40,7 +40,8 @@ public class App
             // UserDAOImpl userDAOImpl = new UserDAOImpl();
 
         // userDAOInterface.insert(userModel);
-        userDAOInterface.update(userModel);
+        // userDAOInterface.update(userModel);
+        userDAOInterface.delete(4);
 
     }
 }

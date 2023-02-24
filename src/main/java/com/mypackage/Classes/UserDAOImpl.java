@@ -91,9 +91,10 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
 	}
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-		
+	public void delete(int userId) {
+	String sql = "delete from user where id = ?";
+	Object[] args = new Object[]{userId};
+	jdbcTemplate.update(sql,args);		
 	}
 
 	@Override

@@ -11,5 +11,5 @@ public interface UserDAOInterface {
 	public int count();
 	public void insert(UserModel userModel);
 	public void update(UserModel userModel);
-	public void delete();
+	public void delete(int userId);
 }
