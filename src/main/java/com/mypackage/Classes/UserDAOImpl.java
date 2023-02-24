@@ -1,5 +1,9 @@
 package com.mypackage.Classes;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.sql.DataSource;
 import javax.swing.tree.RowMapper;
 import javax.swing.tree.TreePath;
@@ -26,7 +30,7 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
 	}
 
 	@Override
-	public UserModel findUserByIdAndMob(int id) {
+	public UserModel findUserById(int id) {
         String sql="select * from user where id = ?";
         Object[] args= new Object[] {id};
         UserModel user=(UserModel)jdbcTemplate.queryForObject(sql, args, new UseRowMapper());		
@@ -34,15 +38,27 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
     }
 	
 	@Override
+	public List<Map<String,Object>> findAll() {
+		String sql = "SELECT * FROM user";
+		List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+		for(Map row : rows){
+			UserModel userModel = new UserModel();
+			userModel.setFull_name((String)row.get("full_name"));
+			userModel.setAddress((String)row.get("address"));
+			userModel.setMobile((String)row.get("mobile"));
+			System.out.println("*********inside findAll**********");
+		}
+		// System.out.println(rows);	
+		return rows;
+	}
+
+	@Override
 	public int count() {
 		String SQL = "select count(*) from user";
 		int rowCount = jdbcTemplate.queryForObject(SQL, Integer.class);
 		return rowCount;
 		
 	}
-
-	
-
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
@@ -60,5 +76,7 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 	
 }
