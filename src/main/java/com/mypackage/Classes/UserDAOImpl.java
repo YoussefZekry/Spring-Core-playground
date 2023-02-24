@@ -5,6 +5,7 @@ import java.sql.Connection;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
@@ -27,15 +28,8 @@ public class UserDAOImpl implements UserDAOInterface{
 	@Override
 	public UserModel findUserByIdAndMob(int id,String mobile) {
         String sql="select * from user where id = ? and mobile = ?";
-        Object[] users= new Object[] {id,mobile};
-        SqlRowSet rowset=jdbcTemplate.queryForRowSet(sql, users);
-        UserModel user =null ;
-        if(rowset.next()){
-            user= new UserModel();
-            user.setId(rowset.getInt("id"));
-            user.setUser_name(rowset.getString("user_name"));
-            user.setAddress(rowset.getString("address"));
-        }
+        Object[] args= new Object[] {id,mobile};
+        UserModel user=jdbcTemplate.queryForObject(sql, args, new BeanPropertyRowMapper<>(UserModel.class));		
         return user;
     }
 	
