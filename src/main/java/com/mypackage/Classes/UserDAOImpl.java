@@ -1,18 +1,18 @@
 package com.mypackage.Classes;
 
-import java.sql.Connection;
-
 import javax.sql.DataSource;
+import javax.swing.tree.RowMapper;
+import javax.swing.tree.TreePath;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.mypackage.UseRowMapper;
 import com.mypackage.Interfaces.UserDAOInterface;
 import com.mypackage.Models.UserModel;
 
-public class UserDAOImpl implements UserDAOInterface{
+public class UserDAOImpl implements UserDAOInterface,RowMapper{
 	
 	private JdbcTemplate jdbcTemplate;
 
@@ -26,10 +26,10 @@ public class UserDAOImpl implements UserDAOInterface{
 	}
 
 	@Override
-	public UserModel findUserByIdAndMob(int id,String mobile) {
-        String sql="select * from user where id = ? and mobile = ?";
-        Object[] args= new Object[] {id,mobile};
-        UserModel user=jdbcTemplate.queryForObject(sql, args, new BeanPropertyRowMapper<>(UserModel.class));		
+	public UserModel findUserByIdAndMob(int id) {
+        String sql="select * from user where id = ?";
+        Object[] args= new Object[] {id};
+        UserModel user=(UserModel)jdbcTemplate.queryForObject(sql, args, new UseRowMapper());		
         return user;
     }
 	
@@ -41,6 +41,8 @@ public class UserDAOImpl implements UserDAOInterface{
 		
 	}
 
+	
+
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
@@ -51,6 +53,12 @@ public class UserDAOImpl implements UserDAOInterface{
 	public void delete() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int[] getRowsForPaths(TreePath[] arg0) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

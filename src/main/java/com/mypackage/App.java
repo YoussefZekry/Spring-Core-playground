@@ -17,7 +17,7 @@ public class App
         UserDAOInterface userDAOInterface = (UserDAOInterface)context.getBean("UserDAOImpl");
 
         // UserDAOImpl userDAOImpl = new UserDAOImpl();
-        UserModel userModel = userDAOInterface.findUserByIdAndMob(2,"012");
+        UserModel userModel = userDAOInterface.findUserByIdAndMob(2);
         System.out.println(userDAOInterface.count());
         System.out.println(userModel.getUser_name());
     }
