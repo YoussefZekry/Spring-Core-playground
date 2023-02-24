@@ -9,6 +9,7 @@ public interface UserDAOInterface {
 	public UserModel findUserById(int id);
 	public List<Map<String,Object>> findAll();
 	public int count();
+	public void insert(UserModel userModel);
 	public void update();
 	public void delete();
 }

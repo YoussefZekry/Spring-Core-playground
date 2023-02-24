@@ -1,5 +1,6 @@
 package com.mypackage.Classes;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,25 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public void insert(UserModel userModel) {
+		String sql = "INSERT INTO `biddingschema`.`user` (`email`, `address`,`phone`, `mobile`, `date_of_birth`, `registration_date`, `user_name`, `password`, `full_name`) VALUES (?,?,?,?,?,?,?,?,?)";
+		Object[] args = new Object[]{
+			// userModel.getId(),
+			userModel.getEmail(),
+			userModel.getAddress(),
+			userModel.getPhone(),
+			userModel.getMobile(),
+			userModel.getDate_of_birth(),
+			userModel.getRegistration_date(),
+			userModel.getUser_name(),
+			userModel.getPassword(),
+			userModel.getFull_name()
+			};
+		int x = jdbcTemplate.update(sql, args);
+		System.out.println(x);
 	}
 
 	@Override
@@ -76,6 +96,8 @@ public class UserDAOImpl implements UserDAOInterface,RowMapper{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 
 	

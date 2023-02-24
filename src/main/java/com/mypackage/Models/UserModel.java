@@ -1,16 +1,19 @@
 package com.mypackage.Models;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class UserModel {
 	int id;
-	String email;
-	String address;
-	String phone;
-	String mobile;
-	String date_of_birth;
-	String registration_date;
-	String user_name;
-	String password;
-	String full_name;
+	String email="";
+	String address="";
+	String phone="";
+	String mobile="";
+	Date date_of_birth;
+	Date registration_date;
+	String user_name="";
+	String password="";
+	String full_name="";
 	public int getId() {
 		return id;
 	}
@@ -41,16 +44,16 @@ public class UserModel {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public String getDate_of_birth() {
+	public Date getDate_of_birth() {
 		return date_of_birth;
 	}
-	public void setDate_of_birth(String date_of_birth) {
+	public void setDate_of_birth(Date date_of_birth) {
 		this.date_of_birth = date_of_birth;
 	}
-	public String getRegistration_date() {
+	public Date getRegistration_date() {
 		return registration_date;
 	}
-	public void setRegistration_date(String registration_date) {
+	public void setRegistration_date(Date registration_date) {
 		this.registration_date = registration_date;
 	}
 	public String getUser_name() {
