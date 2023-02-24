@@ -1,9 +1,8 @@
 package com.mypackage;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.env.Environment;
+import com.mypackage.Interfaces.UserDAOInterface;
+import com.mypackage.Models.UserModel;
 
 
 public class App 
@@ -15,13 +14,11 @@ public class App
                 new ClassPathXmlApplicationContext("beans2.xml");
 
         //retrieve bean from spring container
-        CalcInterface calc = context.getBean("CalcService",CalcInterface.class);
-        System.out.println( calc.add(5, 4));
-        System.out.println(calc.multi(5, 4));
+        UserDAOInterface userDAOInterface = (UserDAOInterface)context.getBean("UserDAOImpl");
 
-        MaxMinInterface maxMinInterface = (MaxMinInterface) calc;
-        maxMinInterface.max(20, 8);
-        maxMinInterface.min(20, 8);
-        // context.registerShutdownHook();
+        // UserDAOImpl userDAOImpl = new UserDAOImpl();
+        UserModel userModel = userDAOInterface.findUserByIdAndMob(2,"012");
+        System.out.println(userDAOInterface.count());
+        System.out.println(userModel.getUser_name());
     }
 }
