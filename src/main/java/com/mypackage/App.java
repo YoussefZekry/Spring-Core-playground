@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mypackage.Classes.UserDAOImpl;
 import com.mypackage.Interfaces.UserDAOInterface;
+import com.mypackage.Models.Person;
 import com.mypackage.Models.User;
 
 
@@ -42,6 +43,10 @@ public class App
         // userDAOInterface.insert(userModel);
         // userDAOInterface.update(userModel);
         // userDAOInterface.delete(4);
+        Person person = new Person();
+        person.setFirstName("youssef");
+        person.setLastName("zekry");
+        userDAOInterface.insert(person);
         
 
     }

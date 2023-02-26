@@ -1,10 +1,16 @@
 package com.mypackage.Classes;
 
 import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.lang.Nullable;
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.mypackage.Interfaces.UserDAOInterface;
+import com.mypackage.Models.Person;
 
 public class UserDAOImpl implements UserDAOInterface{
 	
@@ -87,6 +93,23 @@ public class UserDAOImpl implements UserDAOInterface{
 		
 	}
 
+	@Override
+	public Person insert(Person person) {
+		getHibernateTemplate().execute(new HibernateCallback<Object>() {
+
+			@Override
+			@Nullable
+			public Object doInHibernate(Session session) throws HibernateException {
+				session.beginTransaction();
+				session.save(person);
+				session.getTransaction().commit();
+				return null;
+			}
+		});
+		return person;
+	}
+
+	
 
 
 	// @Override

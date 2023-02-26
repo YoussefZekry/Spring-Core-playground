@@ -9,7 +9,7 @@ public interface UserDAOInterface {
 	// public UserModel findUserById(int id);
 	// public List<Map<String,Object>> findAll();
 	public Long count();
-	// public void insert(UserModel userModel);
+	public Person insert(Person person);
 	// public void update(UserModel userModel);
 	// public void delete(int userId);
 }
