@@ -11,6 +11,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import com.mypackage.Interfaces.UserDAOInterface;
 import com.mypackage.Models.Person;
+import com.mysql.cj.xdevapi.SessionFactory;
 
 public class UserDAOImpl implements UserDAOInterface{
 	
@@ -107,6 +108,34 @@ public class UserDAOImpl implements UserDAOInterface{
 			}
 		});
 		return person;
+	}
+
+	@Override
+	public void delete(Person person) {
+		getHibernateTemplate().execute(new HibernateCallback<Object>() {
+
+			@Override
+			@Nullable
+			public Object doInHibernate(Session session) throws HibernateException {
+				session.beginTransaction();
+				session.delete(person);
+				session.getTransaction().commit();
+				return null;
+			}
+		});		
+	}
+
+	@Override
+	public Person findOne(Integer personId) {
+		return getHibernateTemplate().load(Person.class, personId);
+	}
+
+	@Override
+	public void deleteById(int personId) {
+		Person person = findOne(personId);
+		System.out.println("===========");
+		System.out.println("person id that needs to be deleted: " + person.getId());
+		delete(person);
 	}
 
 	
