@@ -45,10 +45,11 @@ public class App
         // userDAOInterface.delete(4);
 
         Person person = new Person();
-        person.setFirstName("youssef");
-        person.setLastName("zekry");
-        // person.setId(2);
-        userDAOInterface.insert(person);
+        person.setFirstName("updated youssef");
+        person.setLastName("updated zekry");
+        person.setId(2);
+        // userDAOInterface.insert(person);
+        userDAOInterface.update(person);
         // userDAOInterface.deleteById(2);
         
 

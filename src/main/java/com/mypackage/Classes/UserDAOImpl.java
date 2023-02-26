@@ -132,35 +132,11 @@ public class UserDAOImpl implements UserDAOInterface{
 		return person;
 	}
 
-	
-
-
-	// @Override
-	// public void update(UserModel userModel) {
-	// 	String sql = "UPDATE user set email = ?, address = ?, phone = ? where id = ?";
-	// 	Object[] args = new Object[]{
-	// 		userModel.getEmail(),
-	// 		userModel.getAddress(),
-	// 		userModel.getPhone(),
-	// 		userModel.getId()};
-	// 	jdbcTemplate.update(sql,args);		
-	// }
-
-	// @Override
-	// public void delete(int userId) {
-	// String sql = "delete from user where id = ?";
-	// Object[] args = new Object[]{userId};
-	// jdbcTemplate.update(sql,args);		
-	// }
-
-	// @Override
-	// public int[] getRowsForPaths(TreePath[] arg0) {
-	// 	// TODO Auto-generated method stub
-	// 	return null;
-	// }
-
-
-
+	@Transactional
+	@Override
+	public void update(Person person) {
+		hibernateTemplate.update(person);
+	}
 
 	
 }

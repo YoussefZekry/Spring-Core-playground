@@ -11,6 +11,7 @@ public interface UserDAOInterface {
 	public Long count();
 	public Person insert(Person person);
 	// public void update(UserModel userModel);
+	public void update(Person person);
 	public void delete(Person person);
 	public void deleteById(int personId);
 	public Person findOne(Integer personId);
