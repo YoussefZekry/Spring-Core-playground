@@ -7,16 +7,54 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:component-scan base-package="com.mypackage" />
+	<context:property-placeholder location="classpath:dataSource.properties"/>
+	
+	<!-- <bean id="dataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driverClassName}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean> -->
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:3306/biddingschema"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/inheritance2"/>
 		<property name="username" value="root"/>
 		<property name="password" value="2111976"></property>
 	</bean>
 
+
+	<bean id="sessionFactory"
+			class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="packagesToScan">
+			<list>
+				<value>com.mypackage</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplate"
+			class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"/>	
+	</bean>
+
+	<bean id="transactionManager"
+			class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="transactionTemplate"
+			class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+
 	<bean id="UserDAOImpl"
-		class="com.mypackage.Classes.UserDAOImpl">
+			class="com.mypackage.Classes.UserDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+		<property name="transactionTemplate" ref="transactionTemplate"/>
 		<!-- <property name="dataSource" ref="dataSource"/> -->
 	</bean>
 

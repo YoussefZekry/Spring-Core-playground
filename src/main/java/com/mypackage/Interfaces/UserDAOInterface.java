@@ -6,10 +6,10 @@ import java.util.Map;
 import com.mypackage.Models.*;
 public interface UserDAOInterface {
 	
-	public UserModel findUserById(int id);
-	public List<Map<String,Object>> findAll();
-	public int count();
-	public void insert(UserModel userModel);
-	public void update(UserModel userModel);
-	public void delete(int userId);
+	// public UserModel findUserById(int id);
+	// public List<Map<String,Object>> findAll();
+	public Long count();
+	// public void insert(UserModel userModel);
+	// public void update(UserModel userModel);
+	// public void delete(int userId);
 }

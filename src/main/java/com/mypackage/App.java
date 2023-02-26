@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mypackage.Classes.UserDAOImpl;
 import com.mypackage.Interfaces.UserDAOInterface;
-import com.mypackage.Models.UserModel;
+import com.mypackage.Models.User;
 
 
 public class App 
@@ -24,7 +24,7 @@ public class App
         // UserModel userModel = new UserModel();
         // UserModel userModel = userDAOInterface.findUserById(2);
         
-        // System.out.println(userDAOInterface.count());
+        System.out.println(userDAOInterface.count());
         // System.out.println(userModel.getUser_name());
         // System.out.println( userDAOInterface.findAll());
             // userModel.setId(5);
@@ -41,7 +41,8 @@ public class App
 
         // userDAOInterface.insert(userModel);
         // userDAOInterface.update(userModel);
-        userDAOInterface.delete(4);
+        // userDAOInterface.delete(4);
+        
 
     }
 }
