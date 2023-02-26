@@ -2,12 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd">
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/tx
+	https://www.springframework.org/schema/tx/spring-tx.xsd">
 	<context:component-scan base-package="com.mypackage" />
 	<context:property-placeholder location="classpath:dataSource.properties"/>
+	<tx:annotation-driven />
 	
 	<!-- <bean id="dataSource"
 			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -54,7 +58,7 @@
 	<bean id="UserDAOImpl"
 			class="com.mypackage.Classes.UserDAOImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate"/>
-		<property name="transactionTemplate" ref="transactionTemplate"/>
+		<!-- <property name="transactionTemplate" ref="transactionTemplate"/> -->
 		<!-- <property name="dataSource" ref="dataSource"/> -->
 	</bean>
 

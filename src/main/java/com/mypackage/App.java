@@ -43,11 +43,13 @@ public class App
         // userDAOInterface.insert(userModel);
         // userDAOInterface.update(userModel);
         // userDAOInterface.delete(4);
-        // Person person = new Person();
-        // person.setFirstName("youssef");
-        // person.setLastName("zekry");
+
+        Person person = new Person();
+        person.setFirstName("youssef");
+        person.setLastName("zekry");
         // person.setId(2);
-        userDAOInterface.deleteById(2);
+        userDAOInterface.insert(person);
+        // userDAOInterface.deleteById(2);
         
 
     }
