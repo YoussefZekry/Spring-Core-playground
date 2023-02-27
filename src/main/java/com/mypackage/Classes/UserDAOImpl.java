@@ -96,20 +96,21 @@ public class UserDAOImpl implements UserDAOInterface{
 	}
 
 	
-
+	@Transactional
 	@Override
 	public void delete(Person person) {
-		getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		// getHibernateTemplate().execute(new HibernateCallback<Object>() {
 
-			@Override
-			@Nullable
-			public Object doInHibernate(Session session) throws HibernateException {
-				session.beginTransaction();
-				session.delete(person);
-				session.getTransaction().commit();
-				return null;
-			}
-		});		
+		// 	@Override
+		// 	@Nullable
+		// 	public Object doInHibernate(Session session) throws HibernateException {
+		// 		session.beginTransaction();
+		// 		session.delete(person);
+		// 		session.getTransaction().commit();
+		// 		return null;
+		// 	}
+		// });		
+		hibernateTemplate.delete(person);
 	}
 
 	@Override
@@ -117,6 +118,7 @@ public class UserDAOImpl implements UserDAOInterface{
 		return getHibernateTemplate().load(Person.class, personId);
 	}
 
+	@Transactional
 	@Override
 	public void deleteById(int personId) {
 		Person person = findOne(personId);
