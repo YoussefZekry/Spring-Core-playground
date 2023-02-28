@@ -1,13 +1,14 @@
 package com.mypackage.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-	@Entity
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
 @Table(name="person"
     ,catalog="inheritance2"
 )
@@ -26,7 +27,7 @@ public class Person  implements java.io.Serializable {
        this.lastName = lastName;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 
     
     @Column(name="id", unique=true, nullable=false)

@@ -17,8 +17,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <springframework.spring-beans.version>6.0.4</springframework.spring-beans.version>
-    <springframework.spring-context.version>6.0.4</springframework.spring-context.version>
+    <!-- <springframework.spring-beans.version>6.0.4</springframework.spring-beans.version>
+    <springframework.spring-context.version>6.0.4</springframework.spring-context.version> -->
   </properties>
 
   <dependencies>
@@ -40,12 +40,12 @@
       <version>2.1.1</version>
     </dependency>
 
-    <dependency>
+    <!-- <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
       <version>1.9.19</version>
       <scope>runtime</scope>
-    </dependency>
+    </dependency> -->
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
     <dependency>
@@ -55,12 +55,12 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
-    <dependency>
+    <!-- <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjrt</artifactId>
       <version>1.9.19</version>
       <scope>compiletime</scope>
-    </dependency>
+    </dependency> -->
 
     <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
     <dependency>
@@ -70,43 +70,43 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-     <dependency>
+     <!-- <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
       <version>6.0.5</version>
-    </dependency> 
+    </dependency>  -->
 
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 <dependency>
   <groupId>org.springframework</groupId>
   <artifactId>spring-orm</artifactId>
-  <version>5.3.25</version>
+  <version>6.0.4</version>
 </dependency>
 
 
   <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
-<dependency>
+<!-- <dependency>
   <groupId>org.hibernate</groupId>
   <artifactId>hibernate-entitymanager</artifactId>
   <version>5.6.15.Final</version>
-</dependency>
+</dependency> -->
 
   
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
   <groupId>org.hibernate</groupId>
   <artifactId>hibernate-core</artifactId>
-  <version>5.6.15.Final</version>
+  <version>6.1.6.Final</version>
 </dependency>
 
 
 
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
-<dependency>
+<!-- <dependency>
   <groupId>org.springframework</groupId>
   <artifactId>spring-aspects</artifactId>
   <version>6.0.5</version>
-</dependency>
+</dependency> -->
 
 
   </dependencies>
